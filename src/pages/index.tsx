@@ -40,50 +40,50 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 flex items-center justify-center p-4 transition-colors duration-300">
-  <div className="w-full max-w-3xl bg-white dark:bg-zinc-800 text-black dark:text-white shadow-xl rounded-xl p-6">
-    <h1 className="text-3xl font-bold mb-6 text-center text-blue-600 dark:text-blue-400">
-      GitHub User Profile Analyzer 🚀
-    </h1>
-    
-    <UserForm onSubmit={handleUsernameSubmit} />
+      <div className="w-full max-w-3xl bg-white dark:bg-zinc-800 text-black dark:text-white shadow-xl rounded-xl p-6">
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-600 dark:text-blue-400">
+          GitHub User Profile Analyzer 🤖
+        </h1>
 
-    {loading && (
-      <div className="mt-6 space-y-4">
-        <Skeleton className="h-6 w-1/2 mx-auto" />
-        <Skeleton className="h-10 w-full" />
-        <Skeleton className="h-32 w-full" />
-        <Skeleton className="h-32 w-full" />
+        <UserForm onSubmit={handleUsernameSubmit} />
+
+        {loading && (
+          <div className="mt-6 space-y-4">
+            <Skeleton className="h-6 w-1/2 mx-auto" />
+            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-32 w-full" />
+            <Skeleton className="h-32 w-full" />
+          </div>
+        )}
+
+        {error && (
+          <Alert variant="destructive" className="mt-4">
+            <AlertTitle>Error</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
+
+        {userInfo && (
+          <div className="flex items-center gap-4 mt-6">
+            <img
+              src={userInfo.avatar_url}
+              alt="Avatar"
+              className="w-16 h-16 rounded-full border"
+            />
+            <div>
+              <h2 className="text-xl font-semibold">{userInfo.name || userInfo.login}</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-300">@{userInfo.login}</p>
+              {userInfo.bio && (
+                <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">{userInfo.bio}</p>
+              )}
+            </div>
+          </div>
+        )}
+
+        <RepoList repos={repos} />
+        {commitData.length > 0 && <CommitChart data={commitData} />}
       </div>
-    )}
-
-    {error && (
-      <Alert variant="destructive" className="mt-4">
-        <AlertTitle>Error</AlertTitle>
-        <AlertDescription>{error}</AlertDescription>
-      </Alert>
-    )}
-
-    {userInfo && (
-      <div className="flex items-center gap-4 mt-6">
-        <img
-          src={userInfo.avatar_url}
-          alt="Avatar"
-          className="w-16 h-16 rounded-full border"
-        />
-        <div>
-          <h2 className="text-xl font-semibold">{userInfo.name || userInfo.login}</h2>
-          <p className="text-sm text-gray-600 dark:text-gray-300">@{userInfo.login}</p>
-          {userInfo.bio && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 italic mt-1">{userInfo.bio}</p>
-          )}
-        </div>
-      </div>
-    )}
-
-    <RepoList repos={repos} />
-    {commitData.length > 0 && <CommitChart data={commitData} />}
-  </div>
-</main>
+    </main>
 
   )
 }
