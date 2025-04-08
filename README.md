@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# 🚀 GitHub User Profile Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek web app to analyze a GitHub user's public activity, including repositories and commit trends — built with **React**, **TypeScript**, **Vite**, **ShadCN UI**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🔧 Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- 🔍 Search for any GitHub username
+- 📦 View list of public repositories
+- 📊 Commit activity chart (daily breakdown)
+- 💡 Light/Dark mode toggle
+- ⚡️ Built with modern tech stack
+
+---
+
+## 🛠 Tech Stack
+
+- **React** + **TypeScript**
+- **Vite** (for blazing fast builds)
+- **Tailwind CSS** (utility-first styling)
+- **ShadCN UI** (beautiful components)
+- **Lucide Icons** (for clean icons)
+- **Chart.js + React-chartjs-2** (for commit activity)
+
+---
+
+## 📦 Getting Started Locally
+
+### 1. Clone the Repo
+
+```bash
+git clone https://github.com/YOUR_USERNAME/github-analyzer.git
+cd github-analyzer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 2. Install Dependencies
+```bash
+npm install
 ```
+
+### 3. Set Up Environment Variables
+   Create a .env file at the root:
+```bash
+VITE_GITHUB_TOKEN=your_personal_github_token
+```
+You can generate a token from https://github.com/settings/tokens with public_repo scope.
+
+### 4. Run the App
+```bash
+npm run dev
+
+```
+
+## ☁️ Deploying to Vercel
+
+### 1. Push your project to GitHub
+```bash
+git init
+git add .
+git commit -m "initial commit"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/github-analyzer.git
+git push -u origin main
+```
+
+### 2. Deploy on Vercel
+
+1. Go to [https://vercel.com](https://vercel.com)
+2. Log in with your **GitHub** account
+3. Click **"Import Project"** and select your repository
+4. In the setup:
+
+   -  **Framework Preset**: `Vite`
+   
+   -  **Add an Environment Variable**:
+      ```bash
+      VITE_GITHUB_TOKEN=your_token_here
+      ```
+      > You can generate a token at [https://github.com/settings/tokens](https://github.com/settings/tokens) — only `public_repo` access is needed.
+
+5. Click **Deploy**
+
+🎉 That’s it! Vercel will build and host your app.
+
+## 📸 Example
+Search for a user like:
+
+```bash
+vishvam7738
+```
+
+
+
+
+
